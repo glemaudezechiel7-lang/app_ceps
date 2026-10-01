@@ -1,0 +1,496 @@
+:root {
+    --ceps-vert: #0f8a5f;
+    --ceps-vert-fonce: #0a6644;
+    --ceps-bleu: #1c6fd6;
+    --ceps-fond: #f4f8f6;
+    --ceps-texte: #1f2d27;
+    --ceps-danger: #d64545;
+    --ceps-bordure: #dfe7e3;
+    --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: var(--ceps-fond);
+    color: var(--ceps-texte);
+    line-height: 1.5;
+}
+
+.ceps-container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* ---------- HEADER MODERNE (couleurs vives) ---------- */
+:root {
+    --ceps-degrade-header: linear-gradient(120deg, #0f8a5f 0%, #12c98a 45%, #0a6644 100%);
+    --ceps-rose-vif: #ff3d81;
+    --ceps-jaune-vif: #ffc93c;
+    --ceps-cyan-vif: #12c2e9;
+}
+
+.ceps-header {
+    background: var(--ceps-degrade-header);
+    background-size: 300% 300%;
+    animation: cepsDegradeAnime 12s ease infinite;
+    box-shadow: 0 4px 18px rgba(0,0,0,.18);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.ceps-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .8rem 0;
+    gap: 1rem;
+}
+
+@keyframes cepsDegradeAnime {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.ceps-logo {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0,0,0,.3);
+}
+
+.ceps-logo-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    background: #fff; /* évite un cadre vide disgracieux tant que le logo n'est pas déposé */
+}
+
+.ceps-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: .95rem;
+    font-weight: 600;
+    padding: .35rem .8rem;
+    border-radius: 999px;
+    transition: background .18s ease, transform .18s ease;
+}
+
+.ceps-menu a:hover {
+    background: rgba(255,255,255,.22);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.ceps-btn-nav {
+    background: #fff !important;
+    color: var(--ceps-rose-vif) !important;
+    font-weight: 700 !important;
+}
+.ceps-btn-nav:hover { background: var(--ceps-jaune-vif) !important; }
+
+/* ---------- BOUTON FLOTTANT CHAT (logo CEPS + libellé "Chat", visible sur toutes les pages si connecté) ---------- */
+.ceps-chat-flottant {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    z-index: 1050;
+    text-decoration: none;
+}
+.ceps-chat-flottant-cercle {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,.3);
+    border: 3px solid var(--ceps-rose-vif);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+.ceps-chat-flottant-cercle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.ceps-chat-flottant-label {
+    background: var(--ceps-rose-vif);
+    color: #fff !important;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    padding: .15rem .65rem;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.25);
+    white-space: nowrap;
+}
+.ceps-chat-flottant:hover .ceps-chat-flottant-cercle {
+    transform: scale(1.08);
+    box-shadow: 0 6px 22px rgba(0,0,0,.4);
+}
+
+/* ---------- ALERTES ---------- */
+.ceps-alert { padding: .8rem 1rem; border-radius: var(--radius); margin: 1rem 0; font-size: .95rem; }
+.ceps-alert-succes { background: #e3f6ec; color: var(--ceps-vert-fonce); border: 1px solid #b7e4cc; }
+.ceps-alert-info { background: #dbe9fc; color: var(--ceps-bleu); border: 1px solid #b8d4f7; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.ceps-alert-erreur { background: #fdeaea; color: var(--ceps-danger); border: 1px solid #f3bcbc; }
+
+/* ---------- HERO ---------- */
+.ceps-hero { text-align: center; padding: 3.5rem 1rem; }
+.ceps-hero h1 { font-size: 2.2rem; color: var(--ceps-vert-fonce); margin-bottom: .5rem; }
+.ceps-hero p { color: #55655d; margin-bottom: 1.5rem; }
+
+/* ---------- BOUTONS ---------- */
+.ceps-btn {
+    display: inline-block; background: var(--ceps-vert); color: #fff; border: none;
+    padding: .6rem 1.1rem; border-radius: var(--radius); text-decoration: none;
+    font-size: .95rem; cursor: pointer; transition: background .15s ease;
+}
+.ceps-btn:hover { background: var(--ceps-vert-fonce); }
+.ceps-btn-large { padding: .85rem 1.6rem; font-size: 1.05rem; }
+.ceps-btn-petit { padding: .35rem .7rem; font-size: .85rem; }
+.ceps-lien-danger { color: var(--ceps-danger); text-decoration: none; font-size: .9rem; }
+.ceps-btn-lien { background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline; font-family: inherit; }
+
+/* ---------- GRID / CARDS ---------- */
+.ceps-section { padding: 2rem 0; }
+.ceps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+.ceps-card { background: #fff; border: 1px solid var(--ceps-bordure); border-radius: var(--radius); padding: 1rem; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,.04); }
+.ceps-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: .6rem; }
+.ceps-card-placeholder { width: 100%; height: 140px; display:flex; align-items:center; justify-content:center; font-size: 2.5rem; background: #eef5f1; color: var(--ceps-vert); border-radius: 8px; margin-bottom: .6rem; }
+.ceps-prix { font-weight: 700; color: var(--ceps-vert-fonce); }
+.ceps-badge { display: inline-block; background: #eef5f1; color: var(--ceps-vert-fonce); padding: .15rem .6rem; border-radius: 999px; font-size: .8rem; }
+
+/* ---------- FILTRES GALERIE ---------- */
+.ceps-filtres { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.ceps-filtre { padding: .35rem .9rem; border-radius: 999px; background: #fff; border: 1px solid var(--ceps-bordure); text-decoration: none; color: var(--ceps-texte); font-size: .88rem; }
+.ceps-filtre.actif { background: var(--ceps-vert); color: #fff; border-color: var(--ceps-vert); }
+
+/* ---------- FORMULAIRES ---------- */
+.ceps-form, .ceps-form-page { max-width: 480px; }
+.ceps-form label { display: block; margin-bottom: 1rem; font-size: .9rem; font-weight: 600; }
+.ceps-form input, .ceps-form select, .ceps-form textarea {
+    display: block; width: 100%; margin-top: .3rem; padding: .55rem .7rem;
+    border: 1px solid var(--ceps-bordure); border-radius: 8px; font-size: .95rem; font-weight: 400;
+}
+.ceps-form-inline { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin: .6rem 0; }
+.ceps-form-inline input, .ceps-form-inline select, .ceps-form-inline textarea { width: auto; padding: .4rem .6rem; border: 1px solid var(--ceps-bordure); border-radius: 8px; }
+.ceps-input-qte { width: 60px !important; }
+.ceps-separateur { text-align: center; margin: 1.2rem 0; color: #90a099; }
+
+/* ---------- TABLEAUX ---------- */
+.ceps-table { width: 100%; border-collapse: collapse; margin-top: 1rem; background: #fff; border-radius: var(--radius); overflow: hidden; }
+.ceps-table th, .ceps-table td { padding: .65rem .8rem; border-bottom: 1px solid var(--ceps-bordure); text-align: left; font-size: .9rem; }
+.ceps-table th { background: #eef5f1; color: var(--ceps-vert-fonce); }
+.ceps-stock-faible { background: #fff6e5; }
+
+/* ---------- STATUTS ---------- */
+.ceps-statut { padding: .2rem .6rem; border-radius: 999px; font-size: .8rem; }
+.ceps-statut-en_attente { background: #fff3cd; color: #8a6d1a; }
+.ceps-statut-modifiee_adm { background: #dbe9fc; color: var(--ceps-bleu); }
+.ceps-statut-approuvee { background: #e3f6ec; color: var(--ceps-vert-fonce); }
+.ceps-statut-refusee { background: #fdeaea; color: var(--ceps-danger); }
+
+/* ---------- STATISTIQUES ---------- */
+.ceps-stats-grid { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.2rem 0; }
+.ceps-stat-card { background: #fff; border-radius: var(--radius); padding: 1.2rem 1.6rem; border: 1px solid var(--ceps-bordure); min-width: 160px; }
+.ceps-stat-valeur { display: block; font-size: 1.6rem; font-weight: 700; color: var(--ceps-vert-fonce); }
+.ceps-stat-label { font-size: .85rem; color: #62716a; }
+.ceps-admin-menu { display: flex; gap: .8rem; flex-wrap: wrap; margin: 1.2rem 0; }
+
+/* ---------- CHAT ---------- */
+.ceps-chat-fenetre { background: #fff; border: 1px solid var(--ceps-bordure); border-radius: var(--radius); padding: 1rem; max-height: 420px; overflow-y: auto; margin-bottom: 1rem; }
+.ceps-message { margin-bottom: .8rem; padding: .6rem .9rem; border-radius: 10px; max-width: 75%; }
+.ceps-message-moi { background: #e3f6ec; margin-left: auto; text-align: right; }
+.ceps-message-autre { background: #eef2f5; }
+.ceps-message p { margin: .2rem 0; }
+.ceps-message small { color: #8b978f; font-size: .75rem; }
+.ceps-form-chat { display: flex; gap: .6rem; }
+.ceps-form-chat textarea { flex: 1; padding: .6rem; border-radius: 8px; border: 1px solid var(--ceps-bordure); }
+
+/* ---------- PROFIL ---------- */
+.ceps-profil-photo { text-align: center; margin-bottom: 1.2rem; }
+.ceps-profil-photo img { width: 110px; height: 110px; object-fit: cover; border-radius: 50%; border: 3px solid var(--ceps-vert); }
+.ceps-avatar-defaut { width: 110px; height: 110px; border-radius: 50%; background: #eef5f1; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto; }
+
+.ceps-commentaire { text-align: left; margin-bottom: 1rem; }
+.ceps-total { font-size: 1.2rem; font-weight: 700; text-align: right; }
+.ceps-note { color: #62716a; font-size: .85rem; }
+
+/* ---------- FOOTER ---------- */
+/* ---------- FOOTER MODERNE (couleurs vives) ---------- */
+footer.bg-dark {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 45%, #0f8a5f 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+footer.bg-dark::before {
+    content: "";
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, var(--ceps-rose-vif) 0%, transparent 70%);
+    opacity: .35;
+    border-radius: 50%;
+}
+footer.bg-dark h5 {
+    color: var(--ceps-jaune-vif);
+    font-weight: 700;
+    margin-bottom: .8rem;
+    letter-spacing: .3px;
+}
+footer.bg-dark ul li { margin-bottom: .35rem; }
+footer.bg-dark ul li a { transition: color .15s ease, padding-left .15s ease; display: inline-block; }
+footer.bg-dark ul li a:hover { color: var(--ceps-jaune-vif) !important; padding-left: 4px; }
+footer.bg-dark .fs-3 { transition: transform .2s ease, filter .2s ease; }
+footer.bg-dark .fs-3:hover { transform: translateY(-4px) scale(1.15); filter: drop-shadow(0 0 6px rgba(255,255,255,.5)); }
+footer.bg-dark a[href^="mailto"] { color: var(--ceps-cyan-vif) !important; font-weight: 600; }
+footer.bg-dark hr { opacity: .25; }
+
+@media (max-width: 640px) {
+    .ceps-nav { flex-direction: column; align-items: flex-start; }
+    .ceps-table { font-size: .8rem; }
+}
+
+/* ---------- BARRE DE RECHERCHE DANS LE HEADER ---------- */
+.ceps-recherche { display: flex; flex: 1; max-width: 380px; margin: 0 1rem; }
+.ceps-recherche input {
+    flex: 1; border: none; border-radius: 999px 0 0 999px; padding: .5rem 1rem; font-size: .9rem;
+}
+.ceps-recherche button {
+    background: var(--ceps-rose-vif); color: #fff; border: none; border-radius: 0 999px 999px 0;
+    padding: 0 1rem; cursor: pointer;
+}
+.ceps-recherche button:hover { background: #d81f66; }
+
+/* ---------- MENU HAMBURGER (mobile) — bien visible sur fond vert ---------- */
+.ceps-menu-toggle {
+    display: none;
+    background: #fff;
+    border: 2px solid var(--ceps-jaune-vif);
+    color: var(--ceps-vert-fonce);
+    font-size: 1.6rem;
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+    line-height: 1;
+}
+.ceps-menu-toggle:hover { background: var(--ceps-jaune-vif); }
+
+/* ---------- BOUTON RETOUR + FIL D'ARIANE ---------- */
+.ceps-fil-ariane {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .7rem 1.25rem;
+    background: #fff;
+    border-bottom: 1px solid var(--ceps-bordure);
+    font-size: .85rem;
+}
+.ceps-btn-retour {
+    background: var(--ceps-fond);
+    border: 1px solid var(--ceps-bordure);
+    border-radius: 999px;
+    padding: .3rem .9rem;
+    cursor: pointer;
+    font-size: .82rem;
+    color: var(--ceps-texte);
+}
+.ceps-btn-retour:hover { background: var(--ceps-bordure); }
+.ceps-breadcrumb a { color: var(--ceps-vert-fonce); text-decoration: none; }
+.ceps-breadcrumb a:hover { text-decoration: underline; }
+
+/* ---------- FOOTER : disposition + logo répété ---------- */
+.ceps-footer { background: linear-gradient(135deg, #0a6644 0%, #0f8a5f 55%, #12c98a 100%); color: #fff; padding: 2rem 0 1rem; margin-top: 2rem; }
+.ceps-footer-flex { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+.ceps-footer-marque { display: flex; align-items: center; gap: .6rem; font-weight: 700; max-width: 220px; }
+.ceps-footer-logo { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; background: #fff; }
+.ceps-footer-liens { list-style: none; padding: 0; margin: 0; }
+.ceps-footer-liens li { margin-bottom: .4rem; }
+.ceps-footer-liens a { color: #fff; text-decoration: none; opacity: .9; transition: opacity .15s ease, padding-left .15s ease; }
+.ceps-footer-liens a:hover { opacity: 1; padding-left: 4px; color: var(--ceps-jaune-vif); }
+.ceps-footer-contact a { color: var(--ceps-cyan-vif); }
+.ceps-footer-social { display: flex; gap: .9rem; margin-top: .6rem; }
+.ceps-footer-social a { color: #fff; font-size: 1.5rem; transition: transform .2s ease; }
+.ceps-footer-social a:hover { transform: translateY(-4px) scale(1.15); color: var(--ceps-jaune-vif); }
+.ceps-footer-copy { text-align: center; font-size: .8rem; opacity: .8; margin-top: 1.5rem; margin-bottom: 0; }
+.ceps-contact-liste { list-style: none; padding: 0; }
+.ceps-contact-liste li { margin-bottom: .6rem; }
+
+/* ---------- RESPONSIVE GLOBAL ---------- */
+@media (max-width: 900px) {
+    .ceps-nav { flex-wrap: wrap; }
+    .ceps-recherche { order: 3; max-width: 100%; margin: .6rem 0 0; flex-basis: 100%; }
+    .ceps-menu-toggle { display: block; order: 2; }
+    .ceps-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        order: 4;
+        gap: .3rem;
+        padding-top: .6rem;
+    }
+    .ceps-menu.ouvert { display: flex; }
+    .ceps-menu a { display: block; text-align: left; }
+}
+
+/* ---------- MESSAGE SYSTÈME DANS LE CHAT (commande passée/approuvée/refusée) ---------- */
+.ceps-message-system {
+    max-width: 90%;
+    margin: .8rem auto;
+    text-align: center;
+    background: #fff3cd;
+    color: #6d5510;
+    border: 1px dashed #e6c869;
+    border-radius: 10px;
+    padding: .5rem .9rem;
+    font-size: .85rem;
+}
+.ceps-message-system small { display: block; color: #9a8a55; margin-top: .2rem; }
+
+/* ---------- TITRE DE CATÉGORIE (gestion du stock) ---------- */
+.ceps-categorie-titre {
+    background: var(--ceps-vert);
+    color: #fff;
+    padding: .5rem 1rem;
+    border-radius: 8px 8px 0 0;
+    margin: 1.5rem 0 0;
+    font-size: 1rem;
+}
+
+/* ---------- LIEN ACTIF DANS LE MENU (rose vif) ---------- */
+.ceps-menu a.active {
+    background: var(--ceps-rose-vif) !important;
+    color: #fff !important;
+    font-weight: 700;
+}
+.ceps-btn-nav.active { background: var(--ceps-rose-vif) !important; color: #fff !important; }
+
+/* ---------- MENU MOBILE PLEIN ÉCRAN ---------- */
+@media (max-width: 900px) {
+    .ceps-menu.ouvert {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--ceps-vert-fonce);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 2rem;
+        overflow-y: auto;
+    }
+    .ceps-menu.ouvert a { font-size: 1.2rem; width: 100%; text-align: center; }
+    .ceps-menu-fermer {
+        display: none;
+        position: fixed;
+        top: 18px; right: 18px;
+        z-index: 2001;
+        background: #fff;
+        color: var(--ceps-vert-fonce);
+        border: none;
+        width: 42px; height: 42px;
+        border-radius: 50%;
+        font-size: 1.4rem;
+        cursor: pointer;
+    }
+    .ceps-menu.ouvert ~ .ceps-menu-fermer,
+    .ceps-menu.ouvert + .ceps-menu-fermer { display: block; }
+}
+
+/* ---------- COULEURS D'ORIGINE DES RÉSEAUX SOCIAUX (footer) ---------- */
+.ceps-footer-social a.bi-facebook,  .ceps-footer-social a[title="Facebook"]  { color: #1877F2 !important; }
+.ceps-footer-social a[title="Instagram"] { color: #E4405F !important; }
+.ceps-footer-social a[title="WhatsApp"]  { color: #25D366 !important; }
+.ceps-footer-social a[title="X (Twitter)"] { color: #000 !important; background: #fff; border-radius: 50%; padding: 2px; }
+.ceps-footer-social a { background: #fff; border-radius: 50%; width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.3rem !important; }
+.ceps-footer-social a:hover { transform: translateY(-4px) scale(1.12); filter: brightness(1.1); }
+
+/* ---------- IMAGE PRODUIT CLIQUABLE ---------- */
+.ceps-image-cliquable { display: block; cursor: zoom-in; }
+.ceps-image-cliquable img, .ceps-image-cliquable .ceps-card-placeholder { transition: transform .2s ease; }
+.ceps-image-cliquable:hover img, .ceps-image-cliquable:hover .ceps-card-placeholder { transform: scale(1.04); }
+
+/* ---------- PAGE DÉTAIL PRODUIT ---------- */
+.ceps-detail-produit { display: flex; flex-wrap: wrap; gap: 2rem; }
+.ceps-detail-image { flex: 1 1 320px; }
+.ceps-detail-image img { width: 100%; border-radius: 12px; object-fit: cover; max-height: 420px; }
+.ceps-detail-infos { flex: 1 1 320px; }
+.ceps-detail-description { color: #55655d; }
+.ceps-detail-prix { font-size: 1.6rem; margin: .8rem 0; }
+.ceps-qte-selecteur { display: flex; align-items: center; gap: .5rem; margin: .6rem 0 1.2rem; }
+.ceps-qte-selecteur button { width: 38px; height: 38px; border-radius: 8px; border: 1px solid var(--ceps-bordure); background: #fff; font-size: 1.2rem; cursor: pointer; }
+.ceps-qte-selecteur input { width: 70px; text-align: center; padding: .5rem; border: 1px solid var(--ceps-bordure); border-radius: 8px; }
+.ceps-lien-retour { display: inline-block; margin-top: 1rem; color: var(--ceps-vert-fonce); }
+
+/* ---------- PAGE PAIEMENT ---------- */
+.ceps-paiement-moyens { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.2rem 0; }
+.ceps-paiement-carte { background: #eef5f1; border-radius: 10px; padding: 1rem 1.4rem; flex: 1 1 200px; }
+.ceps-paiement-carte h4 { margin: 0 0 .4rem; color: var(--ceps-vert-fonce); }
+.ceps-paiement-choix { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.ceps-paiement-option { flex: 1 1 300px; background: #fff; border: 1px solid var(--ceps-bordure); border-radius: 12px; padding: 1.4rem; }
+.ceps-paiement-option h3 { color: var(--ceps-vert-fonce); }
+.ceps-paiement-option-verrouillee { background: #f7f7f7; opacity: .9; }
+.ceps-paiement-option-verrouillee h3 { color: #8a8a8a; }
+
+.ceps-btn-secondaire { background: #fff; color: var(--ceps-vert-fonce) !important; border: 1px solid var(--ceps-vert); }
+.ceps-btn-secondaire:hover { background: var(--ceps-vert); color: #fff !important; }
+
+/* ---------- HISTORIQUE CLIENT : bloc par commande ---------- */
+.ceps-commande-bloc { background: #fff; border: 1px solid var(--ceps-bordure); border-radius: 12px; padding: 1.2rem; margin-bottom: 1.4rem; }
+.ceps-commande-entete { display: flex; align-items: center; justify-content: space-between; margin-bottom: .8rem; flex-wrap: wrap; gap: .5rem; }
+.ceps-commande-entete h3 { margin: 0; color: var(--ceps-vert-fonce); }
+.ceps-note-inline { color: #7a8a80; font-size: .85rem; }
+.ceps-preuve-img { max-width: 160px; border-radius: 8px; margin-top: .4rem; display: block; }
+
+/* ---------- CAISSE (point de vente) ---------- */
+.ceps-caisse-layout { display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start; }
+.ceps-caisse-produits { flex: 2 1 400px; }
+.ceps-caisse-panier { flex: 1 1 280px; background: #eef5f1; border-radius: 12px; padding: 1.2rem; position: sticky; top: 90px; }
+
+/* ---------- CONTACT — style moderne ---------- */
+.ceps-contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+.ceps-contact-carte { background: #fff; border-radius: 14px; padding: 1.6rem; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,.06); border-top: 4px solid var(--ceps-vert); transition: transform .2s ease; }
+.ceps-contact-carte:hover { transform: translateY(-6px); }
+.ceps-contact-carte i { font-size: 2.2rem; color: var(--ceps-vert-fonce); margin-bottom: .6rem; display: block; }
+.ceps-contact-carte a { color: var(--ceps-vert-fonce); font-weight: 600; }
+
+/* ---------- À PROPOS — sections ---------- */
+.ceps-apropos-section { margin-bottom: 2rem; }
+.ceps-apropos-section h3 { color: var(--ceps-vert-fonce); border-left: 4px solid var(--ceps-rose-vif); padding-left: .7rem; }
+
+/* ---------- SECTION BIENVENUE (accueil) ---------- */
+.ceps-bienvenue { display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap-reverse; }
+.ceps-bienvenue-texte { flex: 1 1 350px; }
+.ceps-bienvenue-texte h2 { color: var(--ceps-vert-fonce); font-size: 1.8rem; }
+.ceps-bienvenue-image { flex: 1 1 350px; }
+.ceps-bienvenue-image img { width: 100%; border-radius: 14px; object-fit: cover; max-height: 340px; }
+ 
+
+
+/* Par défaut : cacher sur grand écran */
+@media (min-width: 990px) {
+  .ceps-menu-fermer {
+    display: none !important;
+  }
+}
+
+
+
+

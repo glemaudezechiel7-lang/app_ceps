@@ -1,0 +1,22 @@
+Dépose ici tes fichiers images pour qu'ils s'affichent sur le site.
+
+Fichier attendu, EXACTEMENT ce nom (respecte les majuscules/minuscules et l'extension) :
+
+    logo_ceps.jpeg
+    bienvenue.jpeg   (photo pour la section "Bienvenue" de la page d'accueil — optionnelle, la section reste propre même sans elle)
+
+Utilisé automatiquement dans :
+- Le logo du header (en haut du site)
+- Le bouton flottant du chat
+- Le logo répété dans le footer
+- L'en-tête du reçu de vente imprimable
+
+Si ton fichier est un .png ou .jpg au lieu de .jpeg, renomme-le en "logo_ceps.jpeg"
+avant de le déposer ici (ou dis-le pour que le code soit adapté à l'extension exacte).
+
+Taille recommandée : au moins 200x200 pixels, format carré (il est affiché en cercle).
+
+Les icônes réseaux sociaux (Facebook, Instagram, WhatsApp, X) ne sont PAS des images :
+ce sont des icônes de police (Bootstrap Icons) chargées automatiquement depuis internet.
+Si elles ne s'affichent toujours pas après la dernière mise à jour, vérifie que ton
+serveur a bien accès à internet (elles ne s'afficheront pas en local sans connexion).
